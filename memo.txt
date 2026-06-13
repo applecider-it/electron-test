@@ -3,15 +3,20 @@ cd ~/workspace/github/electron-test/src
 
 -----------------------------------
 
+cd ~/workspace/github/electron-test/src
+
 npm start
 
-開発者ツールを開く
 
-Ctrl + Shift + I（Macは Cmd + Option + I）
+cd ~/workspace/github/electron-test/vue
+
+npm run dev
 
 -----------------------------------
 
 ビルド
+
+cd ~/workspace/github/electron-test/src
 
 npm run dist
 
@@ -23,4 +28,13 @@ cd ~/workspace/github/electron-test/src
 
 npm ci
 
+cd ~/workspace/github/electron-test/vue
 
+npm ci
+
+-----------------------------------
+
+
+開発者ツールを開く
+
+Ctrl + Shift + I（Macは Cmd + Option + I）
