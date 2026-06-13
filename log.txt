@@ -37,3 +37,10 @@ ibus engine
 
 npm start
 
+
+-----------------------------------
+
+
+npm create electron-vite@latest
+
+
