@@ -3,8 +3,6 @@ const path = require('path');
 
 const { isDev, isMac, blockDevTool } = require('./system');
 
-console.log({ __dirname, isDev, isMac });
-
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
