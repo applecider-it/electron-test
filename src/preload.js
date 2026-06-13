@@ -1,2 +1,10 @@
-// 今回は特別な処理はしないので、読み込まれたことだけ確認
-console.log('プリロードスクリプトが読み込まれました');
+const { contextBridge, ipcRenderer } = require('electron');
+
+// 画面（windowオブジェクト）に「myAPI」という窓口を公開する
+contextBridge.exposeInMainWorld('myAPI', {
+  // HTML側から window.myAPI.callMainFunction() で呼べるようにする
+  callMainFunction: () => {
+    // メインプロセスに向けて 'trigger-action' という合図を送る
+    ipcRenderer.send('trigger-action');
+  }
+});
