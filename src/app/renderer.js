@@ -1,3 +1,4 @@
 document.getElementById('my-button').addEventListener('click', () => {
-    window.myAPI.callMainFunction();
+    const text = document.getElementById('my-input').value;
+    window.myAPI.callMainFunction(text);
 });
