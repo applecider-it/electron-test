@@ -1,75 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const path = require('path');
+const { setupReload } = require('./system');
+const { setupWindow } = require('./window');
+const { setupAction } = require('./action');
 
-console.log(__dirname);
+setupReload();
 
-// ホットリロードの設定（自分自身がある場所 __dirname を監視）
-// Macだとwindowが複数表示されたり、うまく動作しない
-if (!app.isPackaged && process.platform !== 'darwin') {
-  require('electron-reload')(__dirname, {
-    electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
-    hardResetMethod: 'exit' // ← ウインドウが残るのを防ぐ設定
-  });
-}
+setupAction();
 
-// メインプロセス側で実行したい関数を定義
-function myBackendFunction() {
-  console.log('メインプロセス側の関数が実行されました！(Node.js環境)');
-}
-
-// 画面からの合図を待ち受ける
-ipcMain.on('trigger-action', () => {
-  // 合図が来たら関数を実行する
-  myBackendFunction();
-});
-
-function createWindow() {
-  const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      // セキュリティのための設定（ preload.js を経由させる ）
-      preload: path.join(__dirname, 'preload.js'),
-    },
-  });
-
-  // 製品版（ビルド後）だけデベロッパーツールをブロック
-  if (app.isPackaged) {
-    // 1. ショートカットキーを無効化
-    win.webContents.on('before-input-event', (event, input) => {
-      console.log('before-input-event', input.meta, input.alt, input.code);
-      // Mac: Cmd + Option + I
-      const isMacDevTools = input.meta && input.alt && input.code === 'KeyI';
-      // Windows/Linux: Ctrl + Shift + I
-      const isWinDevTools = input.control && input.shift && input.code === 'KeyI';
-
-      console.log({isMacDevTools, isWinDevTools});
-
-      if (isMacDevTools || isWinDevTools) {
-        event.preventDefault(); // 本来の挙動（開発者ツールを開く）を阻止
-      }
-    });
-
-    // 2. メニューバーなど、他の方法で万が一開かれても「即座に閉じる」安全策
-    win.webContents.on('developer-tools-opened', () => {
-      win.webContents.closeDevTools();
-    });
-  }
-
-  // 画面に表示するHTMLファイルを読み込む
-  win.loadFile(path.join(__dirname, 'index.html'));
-}
-
-// Electronの準備ができたらウインドウを開く
-app.whenReady().then(() => {
-  createWindow();
-
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
-
-// ウインドウがすべて閉じられたらアプリを終了する（Mac以外）
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin' || !app.isPackaged) app.quit();
-});
+setupWindow();

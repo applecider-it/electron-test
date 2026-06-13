@@ -3,40 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello Electron JS!</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #e4f0fa;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover { background-color: #2980b9; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Electron Test</h1>
 
     <button id="my-button">メインプロセスの関数を呼ぶ</button>
 
-    <script>
-        // ボタンがクリックされた時の処理
-        document.getElementById('my-button').addEventListener('click', () => {
-            // preload.js で公開した窓口（myAPI）の関数を実行する
-            window.myAPI.callMainFunction();
-        });
-    </script>
+    <script src="renderer.js"></script>
 </body>
 </html>
