@@ -6,3 +6,34 @@ npm install electron --save-dev
 npm install electron electron-reload --save-dev
 
 npm install electron-builder --save-dev
+
+-----------------------------------
+
+
+sudo apt update
+sudo apt install ibus ibus-mozc
+
+設定を~/.bashrcに追記
+
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+ibus-daemon -drx 2>/dev/null
+ibus engine mozc-jp
+
+ibus-setup
+
+GUIが開いたら：
+
+Input Method タブ
+Add ボタン
+Japanese → Mozc を選択して追加
+
+
+ibus-daemon -drx
+
+ibus engine
+
+npm start
+
