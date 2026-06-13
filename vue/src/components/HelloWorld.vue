@@ -4,11 +4,10 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
+const result = ref("")
 
 const testFunc = async () => {
-  console.log(123);
-  const result = await window.ipcRenderer.invoke('get-data', 'Val1');
-  console.log(result);
+  result.value = await window.ipcRenderer.invoke('get-data', 'Val1');
 }
 </script>
 
@@ -17,6 +16,9 @@ const testFunc = async () => {
 
   <div class="card">
     <button type="button" @click="testFunc">Test</button>
+    <p>
+      result: {{ result }}
+    </p>
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
       Edit
