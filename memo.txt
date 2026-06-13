@@ -20,6 +20,10 @@ cd ~/workspace/github/electron-test/src
 
 npm run dist
 
+cd ~/workspace/github/electron-test/vue
+
+npm run build
+
 -----------------------------------
 
 セットアップ

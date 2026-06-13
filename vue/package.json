@@ -8,6 +8,17 @@
     "build": "vue-tsc && vite build && electron-builder",
     "preview": "vite preview"
   },
+  "build": {
+    "appId": "com.example.myapp",
+    "productName": "MyApp",
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "dependencies": {
     "vue": "^3.4.21"
   },
