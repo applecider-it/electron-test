@@ -2,3 +2,12 @@
 cd ~/workspace/github/electron-test/src
 
 -----------------------------------
+
+npm start
+
+開発者ツールを開く
+
+Ctrl + Shift + I（Macは Cmd + Option + I）
+
+-----------------------------------
+
