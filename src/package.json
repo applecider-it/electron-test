@@ -1,8 +1,8 @@
 {
-  "name": "src",
+  "name": "my-electron-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app/main.js",
+  "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
@@ -11,7 +11,7 @@
     "appId": "com.example.my-electron-app",
     "productName": "MyElectronApp",
     "files": [
-      "app/**/*"
+      "src/**/*"
     ],
     "mac": {
       "target": [

@@ -16,7 +16,7 @@ function createWindow() {
   blockDevTool(win);
 
   // 画面に表示するHTMLファイルを読み込む
-  win.loadFile(path.join(__dirname, 'index.html'));
+  win.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
 }
 
 function setupWindow() {

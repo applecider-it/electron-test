@@ -7,13 +7,14 @@ const isMac = process.platform === 'darwin';
 console.log({ __dirname, isDev, isMac });
 
 /**
- * ホットリロードの設定（自分自身がある場所 __dirname を監視）
+ * ホットリロードの設定
+ * 
  * Macだとwindowが複数表示されたり、うまく動作しない
  */
 function setupReload() {
   if (isDev && !isMac) {
-    require('electron-reload')(__dirname, {
-      electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
+    require('electron-reload')(path.join(__dirname, '..'), {
+      electron: path.join(__dirname, '..', '..', 'node_modules', '.bin', 'electron'),
       hardResetMethod: 'exit', // ← ウインドウが残るのを防ぐ設定
     });
   }
