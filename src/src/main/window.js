@@ -9,7 +9,7 @@ function createWindow() {
     height: 600,
     webPreferences: {
       // セキュリティのための設定（ preload.js を経由させる ）
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, '..', 'preload', 'preload.js'),
     },
   });
 
