@@ -3,3 +3,5 @@ npm init -y
 
 npm install electron --save-dev
 
+npm install electron electron-reload --save-dev
+
