@@ -15,3 +15,12 @@ Ctrl + Shift + I（Macは Cmd + Option + I）
 
 npm run dist
 
+-----------------------------------
+
+セットアップ
+
+cd ~/workspace/github/electron-test/src
+
+npm ci
+
+
