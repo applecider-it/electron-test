@@ -18,7 +18,7 @@ function setupReload() {
 }
 
 /** 製品版（ビルド後）だけデベロッパーツールをブロック */
-function blockDevTool() {
+function blockDevTool(win) {
   if (!isDev) {
     // 1. ショートカットキーを無効化
     win.webContents.on('before-input-event', (event, input) => {
