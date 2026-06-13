@@ -4,7 +4,20 @@
   "description": "",
   "main": "app/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.my-electron-app",
+    "productName": "MyElectronApp",
+    "files": [
+      "app/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    }
   },
   "keywords": [],
   "author": "",
@@ -12,6 +25,7 @@
   "type": "commonjs",
   "devDependencies": {
     "electron": "^42.4.0",
+    "electron-builder": "^26.15.3",
     "electron-reload": "^2.0.0-alpha.1"
   }
 }

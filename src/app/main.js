@@ -4,12 +4,14 @@ const path = require('path');
 console.log(__dirname);
 
 // ホットリロードの設定（自分自身がある場所 __dirname を監視）
-if (process.env.NODE_ENV !== 'production') {
+/* windowが複数表示されたり、うまく動作しない
+if (!app.isPackaged) {
   require('electron-reload')(__dirname, {
     electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
     hardResetMethod: 'exit' // ← ウインドウが残るのを防ぐ設定
   });
 }
+*/
 
 // メインプロセス側で実行したい関数を定義
 function myBackendFunction() {
@@ -32,6 +34,29 @@ function createWindow() {
     },
   });
 
+  // 製品版（ビルド後）だけデベロッパーツールをブロック
+  if (app.isPackaged) {
+    // 1. ショートカットキーを無効化
+    win.webContents.on('before-input-event', (event, input) => {
+      console.log('before-input-event', input.meta, input.alt, input.code);
+      // Mac: Cmd + Option + I
+      const isMacDevTools = input.meta && input.alt && input.code === 'KeyI';
+      // Windows/Linux: Ctrl + Shift + I
+      const isWinDevTools = input.control && input.shift && input.code === 'KeyI';
+
+      console.log({isMacDevTools, isWinDevTools});
+
+      if (isMacDevTools || isWinDevTools) {
+        event.preventDefault(); // 本来の挙動（開発者ツールを開く）を阻止
+      }
+    });
+
+    // 2. メニューバーなど、他の方法で万が一開かれても「即座に閉じる」安全策
+    win.webContents.on('developer-tools-opened', () => {
+      win.webContents.closeDevTools();
+    });
+  }
+
   // 画面に表示するHTMLファイルを読み込む
   win.loadFile(path.join(__dirname, 'index.html'));
 }
@@ -47,5 +72,5 @@ app.whenReady().then(() => {
 
 // ウインドウがすべて閉じられたらアプリを終了する（Mac以外）
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  if (process.platform !== 'darwin' || !app.isPackaged) app.quit();
 });

@@ -11,3 +11,7 @@ Ctrl + Shift + I（Macは Cmd + Option + I）
 
 -----------------------------------
 
+ビルド
+
+npm run dist
+

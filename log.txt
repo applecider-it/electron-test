@@ -5,3 +5,4 @@ npm install electron --save-dev
 
 npm install electron electron-reload --save-dev
 
+npm install electron-builder --save-dev
