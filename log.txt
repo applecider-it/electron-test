@@ -3,8 +3,3 @@ npm init -y
 
 npm install electron --save-dev
 
-
------------------------------------
-
-npm install ts-node typescript @types/node --save-dev
-
