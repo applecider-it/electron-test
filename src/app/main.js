@@ -4,14 +4,13 @@ const path = require('path');
 console.log(__dirname);
 
 // ホットリロードの設定（自分自身がある場所 __dirname を監視）
-/* windowが複数表示されたり、うまく動作しない
-if (!app.isPackaged) {
+// Macだとwindowが複数表示されたり、うまく動作しない
+if (!app.isPackaged && process.platform !== 'darwin') {
   require('electron-reload')(__dirname, {
     electron: path.join(__dirname, '..', 'node_modules', '.bin', 'electron'),
     hardResetMethod: 'exit' // ← ウインドウが残るのを防ぐ設定
   });
 }
-*/
 
 // メインプロセス側で実行したい関数を定義
 function myBackendFunction() {
