@@ -4,9 +4,10 @@ import { ref } from 'vue'
 const result = ref("")
 const fileContent = ref("")
 const filePath = ref("")
+const textInput = ref("")
 
 const testFunc = async () => {
-  result.value = await window.ipcRenderer.invoke('get-data', 'Val1');
+  result.value = await window.ipcRenderer.invoke('get-data', textInput.value);
 }
 
 const openFile = async () => {
@@ -22,6 +23,7 @@ const openFile = async () => {
   <h2 class="app-h2">Home</h2>
 
   <div class="app-card">
+    <input type="text" v-model="textInput" class="app-form-input" />
     <button type="button" @click="testFunc" class="app-btn-primary">Test</button>
     <p>result: {{ result }}</p>
   </div>
