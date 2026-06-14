@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import vueSvg from './assets/vue.svg'
+// 必要に応じてロジックをここに
 </script>
 
 <template>
-  <div class="p-5">
-    <div>
-      <a href="https://electron-vite.github.io" target="_blank">
-        <img src="/electron-vite.svg" class="inline-block w-10" />
-      </a>
-      <img :src="vueSvg" class="inline-block w-10" />
-    </div>
-    <div class="space-x-2">
-      <router-link to="/" class="app-link-normal">ホーム</router-link>
-      <router-link to="/settings" class="app-link-normal">設定</router-link>
-    </div>
-  </div>
-  <div class="p-10">
-    <router-view></router-view>
+  <div class="w-screen h-screen flex flex-col bg-slate-50 text-slate-800 select-none overflow-hidden">
+    
+    <header class="flex items-center justify-between p-4 bg-white border-b border-slate-200 shadow-sm">
+      <div class="flex items-center space-x-3">
+        <img src="/electron-vite.svg" class="w-8 h-8 object-contain" alt="Electron Vite Logo" />
+        
+        <nav class="flex space-x-1 pl-4 border-l border-slate-200">
+          <router-link to="/" class="app-link-normal">ホーム</router-link>
+          <router-link to="/development" class="app-link-normal">開発者向けページ</router-link>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto p-8">
+      <router-view></router-view>
+    </main>
+    
   </div>
 </template>

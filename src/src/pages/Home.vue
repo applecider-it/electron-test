@@ -1,36 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const result = ref("")
-const fileContent = ref("")
-const filePath = ref("")
-const textInput = ref("")
-
-const testFunc = async () => {
-  result.value = await window.ipcRenderer.invoke('get-data', textInput.value);
-}
-
-const openFile = async () => {
-  const res = await window.ipcRenderer.invoke('open-text-file');
-  if (!res) return; // キャンセル時
-
-  filePath.value = res.filePath;
-  fileContent.value = res.content;
-}
 </script>
 
 <template>
-  <h2 class="app-h2">Home</h2>
-
-  <div class="app-card">
-    <input type="text" v-model="textInput" class="app-form-input" />
-    <button type="button" @click="testFunc" class="app-btn-primary">Test</button>
-    <p>result: {{ result }}</p>
-  </div>
-
-  <div class="app-card mt-5">
-    <button type="button" @click="openFile" class="app-btn-primary">ファイルを開く</button>
-    <p>path: {{ filePath }}</p>
-    <pre>{{ fileContent }}</pre>
-  </div>
+  <h2 class="app-h2">ホーム</h2>
 </template>
