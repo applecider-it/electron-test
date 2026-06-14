@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 import { setupIpc } from "./main/ipc";
+import { blockDevTool } from "./main/system";
 
 //const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -48,6 +49,8 @@ function createWindow() {
       preload: path.join(__dirname, "preload.mjs"),
     },
   });
+
+  blockDevTool(win);
 
   // Test active push message to Renderer-process.
   win.webContents.on("did-finish-load", () => {
