@@ -8,6 +8,10 @@
 
 `npm create electron-vite@latest`を使うのが無難。
 
+macでは、ホットリロードが一通り動作する。
+
+wslだとelectronのホットリロードでwindowが増殖する。
+
 ## jsを使う場合
 
 macはホットリロードで、複数windowになる。
