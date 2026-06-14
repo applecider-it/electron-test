@@ -1,11 +1,11 @@
 
-cd ~/workspace/github/electron-test
+cd ~/workspace/github/electron-test/src
 
 -----------------------------------
 
 起動
 
-cd ~/workspace/github/electron-test/vue
+cd ~/workspace/github/electron-test/src
 
 npm run dev
 
@@ -13,7 +13,7 @@ npm run dev
 
 ビルド
 
-cd ~/workspace/github/electron-test/vue
+cd ~/workspace/github/electron-test/src
 
 npm run build
 
@@ -21,7 +21,7 @@ npm run build
 
 セットアップ
 
-cd ~/workspace/github/electron-test/vue
+cd ~/workspace/github/electron-test/src
 
 npm ci
 
