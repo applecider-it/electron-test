@@ -1,7 +1,9 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow } from 'electron'
 //import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
+
+import { setupIpc } from './main/ipc'
 
 //const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -26,10 +28,7 @@ process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 
 
 let win: BrowserWindow | null
 
-ipcMain.handle('get-data', async (_event, val) => {
-  console.log('get-data', {val})
-  return 'メインプロセスからのデータ' + val;
-});
+setupIpc();
 
 function createWindow() {
   win = new BrowserWindow({
