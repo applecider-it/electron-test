@@ -35,6 +35,15 @@ setupIpc();
 function createWindow() {
   win = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+
+    width: 1200, // 初期幅
+    height: 800, // 初期高さ
+    minWidth: 600, // 最小幅
+    minHeight: 400, // 最小高さ
+    // maxWidth: 1920, // 最大幅 (制限したい場合)
+    // maxHeight: 1080,// 最大高さ (制限したい場合)
+    resizable: true, // 可変にする (デフォルトでtrueなので省略可)
+
     webPreferences: {
       preload: path.join(__dirname, "preload.mjs"),
     },
