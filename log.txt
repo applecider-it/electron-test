@@ -43,4 +43,4 @@ npm start
 
 npm create electron-vite@latest
 
-
+npm install vue-router@4
