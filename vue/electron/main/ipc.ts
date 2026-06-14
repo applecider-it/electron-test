@@ -12,7 +12,10 @@ export const setupIpc = () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
       properties: ["openFile"],
       filters: [
-        { name: "テキストファイル", extensions: ["txt", "md", "csv", "json", "log"] },
+        {
+          name: "テキストファイル",
+          extensions: ["txt", "md", "csv", "json", "log"],
+        },
         { name: "すべてのファイル", extensions: ["*"] },
       ],
     });
