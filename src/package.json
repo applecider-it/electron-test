@@ -11,6 +11,9 @@
   "build": {
     "appId": "com.example.myapp",
     "productName": "MyApp",
+    "directories": {
+      "output": "release"
+    },
     "files": [
       "dist/**/*",
       "dist-electron/**/*"
