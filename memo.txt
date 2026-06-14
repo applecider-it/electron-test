@@ -5,53 +5,23 @@ cd ~/workspace/github/electron-test
 
 起動
 
-TS, Vue
-
 cd ~/workspace/github/electron-test/vue
 
 npm run dev
-
-----
-
-JS
-
-cd ~/workspace/github/electron-test/js
-
-npm start
 
 -----------------------------------
 
 ビルド
 
-TS, Vue
-
 cd ~/workspace/github/electron-test/vue
 
 npm run build
-
-----
-
-JS
-
-cd ~/workspace/github/electron-test/js
-
-npm run dist
 
 -----------------------------------
 
 セットアップ
 
-TS, Vue
-
 cd ~/workspace/github/electron-test/vue
-
-npm ci
-
-----
-
-JS
-
-cd ~/workspace/github/electron-test/js
 
 npm ci
 
