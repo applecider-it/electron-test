@@ -26,7 +26,7 @@ const openFile = async () => {
     <p>result: {{ result }}</p>
   </div>
 
-  <div class="app-card">
+  <div class="app-card mt-5">
     <button type="button" @click="openFile" class="app-btn-primary">ファイルを開く</button>
     <p>path: {{ filePath }}</p>
     <pre>{{ fileContent }}</pre>
