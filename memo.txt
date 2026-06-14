@@ -3,36 +3,55 @@ cd ~/workspace/github/electron-test/src
 
 -----------------------------------
 
-cd ~/workspace/github/electron-test/src
+起動
 
-npm start
-
+TS, Vue
 
 cd ~/workspace/github/electron-test/vue
 
 npm run dev
 
+----
+
+JS
+
+cd ~/workspace/github/electron-test/src
+
+npm start
+
 -----------------------------------
 
 ビルド
 
-cd ~/workspace/github/electron-test/src
-
-npm run dist
+TS, Vue
 
 cd ~/workspace/github/electron-test/vue
 
 npm run build
 
+----
+
+JS
+
+cd ~/workspace/github/electron-test/src
+
+npm run dist
+
 -----------------------------------
 
 セットアップ
 
-cd ~/workspace/github/electron-test/src
+TS, Vue
+
+cd ~/workspace/github/electron-test/vue
 
 npm ci
 
-cd ~/workspace/github/electron-test/vue
+----
+
+JS
+
+cd ~/workspace/github/electron-test/src
 
 npm ci
 

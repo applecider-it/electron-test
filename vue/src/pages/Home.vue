@@ -13,10 +13,10 @@ const testFunc = async () => {
   <h1>Home</h1>
 
   <div class="card">
-    <button type="button" @click="testFunc">Test</button>
+    <button type="button" @click="testFunc" class="app-btn-primary">Test</button>
     <p>
       result: {{ result }}
     </p>
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="count++" class="app-btn-primary">count is {{ count }}</button>
   </div>
 </template>

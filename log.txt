@@ -44,3 +44,9 @@ npm start
 npm create electron-vite@latest
 
 npm install vue-router@4
+
+
+npm install -D tailwindcss@^3.4.18 postcss autoprefixer
+
+npx tailwindcss init -p
+
