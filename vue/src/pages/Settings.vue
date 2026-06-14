@@ -2,7 +2,5 @@
 </script>
 
 <template>
-  <div>
-    <h1>設定</h1>
-  </div>
+  <h2 class="app-h2">設定</h2>
 </template>
