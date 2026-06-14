@@ -1,5 +1,5 @@
 
-cd ~/workspace/github/electron-test/src
+cd ~/workspace/github/electron-test
 
 -----------------------------------
 
@@ -15,7 +15,7 @@ npm run dev
 
 JS
 
-cd ~/workspace/github/electron-test/src
+cd ~/workspace/github/electron-test/js
 
 npm start
 
@@ -33,7 +33,7 @@ npm run build
 
 JS
 
-cd ~/workspace/github/electron-test/src
+cd ~/workspace/github/electron-test/js
 
 npm run dist
 
@@ -51,7 +51,7 @@ npm ci
 
 JS
 
-cd ~/workspace/github/electron-test/src
+cd ~/workspace/github/electron-test/js
 
 npm ci
 
