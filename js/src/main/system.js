@@ -40,7 +40,7 @@ function blockDevTool(win) {
     });
 
     // 2. メニューバーなど、他の方法で万が一開かれても「即座に閉じる」安全策
-    win.webContents.on('developer-tools-opened', () => {
+    win.webContents.on('devtools-opened', () => {
       win.webContents.closeDevTools();
     });
   }
