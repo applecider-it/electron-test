@@ -17,6 +17,11 @@ cd ~/workspace/github/electron-test/src
 
 npm run build
 
+
+削除
+
+rm -rf dist/ dist-electron/ release/
+
 -----------------------------------
 
 セットアップ
