@@ -1,10 +1,11 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 //import { createRequire } from 'node:module'
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 import { setupIpc } from "./ipc";
 import { blockDevTool } from "./services/system/devtool";
+import { getMenuTemplate } from "./menu";
 
 //const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,6 +71,8 @@ function createWindow() {
 // explicitly with Cmd + Q.
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
+    // MacOS以外の場合
+
     app.quit();
     win = null;
   }
@@ -83,4 +86,12 @@ app.on("activate", () => {
   }
 });
 
-app.whenReady().then(createWindow);
+// アプリの準備ができたら呼ばれる処理
+app.whenReady().then(() => {
+  // メニューを設定
+  const menu = Menu.buildFromTemplate(getMenuTemplate(createWindow));
+  Menu.setApplicationMenu(menu);
+
+  // ウィンドウを作る
+  createWindow();
+});
