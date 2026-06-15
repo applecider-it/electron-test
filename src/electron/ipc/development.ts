@@ -1,6 +1,6 @@
 import { ipcMain } from "electron";
 
-import { execFilesystemTest } from "../../services/development/filesystem-test";
+import { execFilesystemTest } from "../services/development/filesystem-test";
 
 export const setupIpcDevelopment = () => {
   ipcMain.handle("development--get-data", async (_event, val) => {

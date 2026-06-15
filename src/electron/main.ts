@@ -3,8 +3,8 @@ import { app, BrowserWindow } from "electron";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
-import { setupIpc } from "./main/ipc";
-import { blockDevTool } from "./main/system";
+import { setupIpc } from "./ipc";
+import { blockDevTool } from "./services/system/devtool";
 
 //const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
