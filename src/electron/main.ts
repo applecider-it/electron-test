@@ -66,6 +66,10 @@ function createWindow() {
   }
 }
 
+function getWindow() {
+  return win;
+}
+
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -89,7 +93,7 @@ app.on("activate", () => {
 // アプリの準備ができたら呼ばれる処理
 app.whenReady().then(() => {
   // メニューを設定
-  const menu = Menu.buildFromTemplate(getMenuTemplate(createWindow));
+  const menu = Menu.buildFromTemplate(getMenuTemplate(getWindow));
   Menu.setApplicationMenu(menu);
 
   // ウィンドウを作る

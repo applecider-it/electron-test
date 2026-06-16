@@ -1,18 +1,11 @@
 import { app, MenuItemConstructorOptions } from "electron";
 
 /** メニューのテンプレートを定義 */
-export const getMenuTemplate = (createWindow: Function) => {
+export const getMenuTemplate = (getWindow: Function) => {
   const menuTemplate: MenuItemConstructorOptions[] = [
     {
       label: "ファイル",
       submenu: [
-        {
-          label: "新しいウィンドウ",
-          click: () => {
-            createWindow();
-          },
-        },
-        { type: "separator" }, // 区切り線
         { role: "quit", label: "アプリを終了" },
       ],
     },
@@ -28,6 +21,27 @@ export const getMenuTemplate = (createWindow: Function) => {
       ],
     },
   ];
+
+  if (!app.isPackaged) {
+    // 開発時の場合
+
+    menuTemplate.push({
+      label: "開発",
+      submenu: [
+        { role: "reload", label: "再読み込み" },
+        { role: "forceReload", label: "強制的に再読み込み" },
+        { type: "separator" },
+        { role: "toggleDevTools", label: "デベロッパーツールを切り替え" }, // ★ これで Cmd+Opt+I が復活します
+        { type: "separator" },
+        {
+          label: "開発者向けページに移動",
+          click: () => {
+            getWindow()?.webContents.send("app--router-push", "/development");
+          },
+        },
+      ],
+    });
+  }
 
   if (process.platform === "darwin") {
     // MacOSの場合

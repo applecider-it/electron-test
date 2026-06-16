@@ -3,6 +3,8 @@ import { app, BrowserWindow } from "electron";
 /** 製品版（ビルド後）だけデベロッパーツールをブロック */
 export function blockDevTool(win: BrowserWindow) {
   if (app.isPackaged) {
+    // ビルド時の場合
+
     // 1. ショートカットキーを無効化
     win.webContents.on("before-input-event", (event, input) => {
       // Mac: Cmd + Option + I
