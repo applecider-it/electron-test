@@ -1,4 +1,5 @@
 import type { Router } from "vue-router";
+import { setupIpcApp } from "./ipc/app";
 
 export const setupIpc = (router: Router) => {
   // Use contextBridge
@@ -6,9 +7,5 @@ export const setupIpc = (router: Router) => {
     console.log(message);
   });
 
-  window.ipcRenderer.on("app--router-push", (_event, uri) => {
-    console.log("app--router-push", { uri });
-
-    router.push(uri);
-  });
+  setupIpcApp(router);
 };

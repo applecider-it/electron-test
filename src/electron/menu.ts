@@ -1,7 +1,9 @@
-import { app, MenuItemConstructorOptions } from "electron";
+import { app, MenuItemConstructorOptions, type BrowserWindow } from "electron";
+
+import { routerPush } from "./ipc/app";
 
 /** メニューのテンプレートを定義 */
-export const getMenuTemplate = (getWindow: Function) => {
+export const getMenuTemplate = (getWindow: () => BrowserWindow | null) => {
   const menuTemplate: MenuItemConstructorOptions[] = [
     {
       label: "ファイル",
@@ -36,7 +38,9 @@ export const getMenuTemplate = (getWindow: Function) => {
         {
           label: "開発者向けページに移動",
           click: () => {
-            getWindow()?.webContents.send("app--router-push", "/development");
+            const win = getWindow();
+            if (!win) return;
+            routerPush(win, "/development");
           },
         },
       ],

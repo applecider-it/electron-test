@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import { ipcSendTest } from '../../ipc/development'
+
 const result = ref("")
 const textInput = ref("")
 
 const testFunc = async () => {
-  result.value = await window.ipcRenderer.invoke('development--get-data', textInput.value);
+  result.value = await ipcSendTest(textInput.value);
 }
 </script>
 
