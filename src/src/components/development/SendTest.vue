@@ -12,13 +12,13 @@ const testFunc = async () => {
 </script>
 
 <template>
-    <h3 class="app-h3">送受信動作確認</h3>
+  <h3 class="app-h3">送受信動作確認</h3>
 
-    <input type="text" v-model="textInput" class="app-form-input" />
+  <input type="text" v-model="textInput" class="app-form-input" />
 
-    <div class="my-5">
-      <button type="button" @click="testFunc" class="app-btn-primary">Test</button>
-    </div>
+  <div class="my-5">
+    <button type="button" @click="testFunc" class="app-btn-primary">Test</button>
+  </div>
 
-    <div>result: {{ result }}</div>
+  <div>result: {{ result }}</div>
 </template>

@@ -7,9 +7,7 @@ export const getMenuTemplate = (getWindow: () => BrowserWindow | null) => {
   const menuTemplate: MenuItemConstructorOptions[] = [
     {
       label: "ファイル",
-      submenu: [
-        { role: "quit", label: "アプリを終了" },
-      ],
+      submenu: [{ role: "quit", label: "アプリを終了" }],
     },
     {
       label: "編集",
