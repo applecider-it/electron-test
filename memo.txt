@@ -17,6 +17,8 @@ cd ~/workspace/github/electron-test/src
 
 npm run build
 
+windows用のビルドの場合は、管理者権限での実行が必要
+
 
 削除
 
