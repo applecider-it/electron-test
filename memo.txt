@@ -1,0 +1,40 @@
+
+cd ~/workspace/github/electron-test/src
+
+-----------------------------------
+
+起動
+
+cd ~/workspace/github/electron-test/src
+
+npm run dev
+
+-----------------------------------
+
+ビルド
+
+cd ~/workspace/github/electron-test/src
+
+npm run build
+
+windows用のビルドの場合は、管理者権限での実行が必要
+
+
+削除
+
+rm -rf dist/ dist-electron/ release/
+
+-----------------------------------
+
+セットアップ
+
+cd ~/workspace/github/electron-test/src
+
+npm ci
+
+-----------------------------------
+
+
+開発者ツールを開く
+
+Ctrl + Shift + I（Macは Cmd + Option + I）
